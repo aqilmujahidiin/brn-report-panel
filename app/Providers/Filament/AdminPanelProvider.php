@@ -2,9 +2,12 @@
 
 namespace App\Providers\Filament;
 
+use Auth;
+use Filament\Facades\Filament;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -28,9 +31,17 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('')
             ->login()
+            ->profile()
+            ->favicon(asset('images/favicon.ico'))
+            ->brandLogo(asset('images/logo.png'))
             ->maxContentWidth(maxContentWidth: 'full')
             ->colors([
                 'primary' => Color::Indigo,
+                'danger' => Color::Red,
+                'gray' => Color::Slate,
+                'info' => Color::Blue,
+                'success' => Color::Emerald,
+                'warning' => Color::Orange,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
