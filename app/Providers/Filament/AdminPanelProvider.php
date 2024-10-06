@@ -31,7 +31,6 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('')
             ->login()
-            ->profile()
             ->favicon(asset('images/favicon.ico'))
             ->brandLogo(asset('images/logo.png'))
             ->maxContentWidth(maxContentWidth: 'full')
