@@ -10,7 +10,9 @@ class MpOverview extends Page
     use HasPageShield;
     protected static ?string $navigationIcon = 'heroicon-o-home';
     protected static ?string $navigationGroup = 'Marketplace';
+    protected static ?string $title = 'Overview Report';
     protected static ?string $navigationLabel = 'Overview';
-    protected static ?int $navigationSort = 1;
+    protected static ?string $slug = 'marketplace/overview';
+    protected static ?int $navigationSort = 6;
     protected static string $view = 'filament.pages.marketplace.mp-overview';
 }

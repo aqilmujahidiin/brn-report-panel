@@ -22,7 +22,7 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
     public static function getNavigationSort(): ?int
     {
         return 9999;
@@ -46,7 +46,10 @@ class UserResource extends Resource
     {
         return $this->getResource()::getUrl('index');
     }
-
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
     public static function form(Form $form): Form
     {
         return $form
